@@ -1,0 +1,49 @@
+http://codecriticon.com/reflection-api-metodos/
+http://personales.unican.es/sanchezbp/teaching/faqs/genericsJava.html
+
+// Intento crear un objeto de tipo T   
+      T objT = new T();   
+      // Error, no se pueden instancias  
+      // tipos patrametrizados  
+T result;  
+        
+      // Hay un objeto objT accesible y   
+      // del tipo T  
+result = objT.getClass().newInstance();   
+
+    Person p = new Person();   
+                      
+    Class<? extends Person> clase = p.getClass();  
+      
+    Person [] vPerson = (Person []) Array.newInstance(clase, 10); 
+
+ Demo demo = new Demo();
+    Class clase = demo.getClass();
+ 
+    try {
+        // Recuperar el método "decirHola" sin parametros
+        Method metodoHola = clase.getMethod("decirHola", null);
+        System.out.println("Método encontrado: " + metodoHola.toString());
+
+
+public String decirHola() {
+    return "Hola";
+}
+ 
+public void setString(String str) {
+    this.string = str;
+} 
+
+métodos son invocados utilizando Method.invoke(Object objeto, Object…parametros ). 
+El primer parámetro es una instancia del objeto sobre el que queremos invocar el métodos. 
+(Si el método es static, este parámetro debe ser null.)
+
+Demo demo = new Demo();
+     Class clase = demo.getClass(); 
+ 
+     // Se recupera el método decirHola.
+     Class[] args = {String.class};
+     Method metodoHola = clase.getDeclaredMethod("decirHola", args);
+     System.out.println("Método encontrado: " + metodoHola.toString());
+ 
+     String saludo = metodoHola.invoke(demo, new String("Codecriticon"));

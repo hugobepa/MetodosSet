@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package metodosset.Parametrizar;
-
-import java.util.TreeSet;
+package metodosset.Genericas;
 
 /**
  *
  * @author hugo
  */
-public class Parametrizar {
-    ComparadorPersona cp = new ComparadorPersona();
-    TreeSet<Persona>  arbol= new  TreeSet<Persona>();
+public class CajaPersona<T extends Persona> {
+    private T dato;
+    public T quita(){return dato;}
+    public void pon (T d){dato=d;}
     
 }
